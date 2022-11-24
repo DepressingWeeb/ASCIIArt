@@ -3,6 +3,7 @@ import pygame
 from pygame.locals import *
 import numpy as np
 import sys
+import os
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -75,6 +76,9 @@ class ASCIIArtGeneratorColored:
             frame_current += 1
         if self.n_bits_color >= 47:
             print()
+            path=os.path.join(os.getcwd(),"Frames")
+            if not os.path.isdir(path):
+                os.mkdir(path)
             self.get_frames()
 
     def get_frames(self):
